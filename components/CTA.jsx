@@ -5,7 +5,7 @@ const CTA = () => {
   return (
     <div className={styles.container}>
       <h1>Create your own Failure Resume today</h1>
-      <button type="button">Get Started - It's Free</button>
+      <button type="button">Get Started - It&apos;s Free</button>
     </div>
   );
 };
