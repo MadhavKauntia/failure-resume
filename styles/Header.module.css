@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Vibes&display=swap");
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-secondary);
+  height: 10%;
+}
+
+.container h1 {
+  font-family: "Vibes", cursive;
+  font-size: 72px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 2rem;
+
+  cursor: pointer;
+}
+
+.primary-text {
+  color: var(--color-text);
+}
+
+.subtext {
+  color: var(--color-subtext);
+}
+
+.container ul {
+  list-style-type: none;
+  display: flex;
+  gap: 4rem;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: 24px;
+}
+
+.container ul li:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-subtext);
+  cursor: pointer;
+  transition: text-decoration 0.3s ease;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+  gap: 2rem;
+}
+
+.login p {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text);
+
+  cursor: pointer;
+}
+
+.login button {
+  background: var(--color-subtext);
+  border-radius: 5px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text);
+  padding: 1rem 2rem;
+
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.container {
+  margin: 1rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.privacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.privacy a {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 60px;
+
+  color: var(--color-text);
+
+  cursor: pointer;
+}
+
+.project {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 60px;
+
+  color: var(--color-text);
+}
+
+.subtext {
+  color: var(--color-subtext);
+  cursor: pointer;
+}
