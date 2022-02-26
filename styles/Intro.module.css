@@ -8,12 +8,13 @@
 
 .container h1 {
   font-family: var(--font-family);
-  font-size: 72px;
+  font-size: 60px;
   line-height: 86px;
   margin-bottom: 0;
   font-weight: 600;
 
   color: var(--color-text);
+  animation: glow 0.5s infinite alternate;
 }
 
 .container p {
@@ -33,4 +34,13 @@
 .image {
   border: 3px solid rgba(0, 173, 181, 0.5);
   border-radius: 5px;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 -10px var(--color-subtext);
+  }
+  to {
+    text-shadow: 0 0 10px var(--color-subtext);
+  }
 }

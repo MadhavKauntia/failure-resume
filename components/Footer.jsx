@@ -9,7 +9,15 @@ const Footer = () => {
         <a>Terms</a>
       </div>
       <div className={styles.project}>
-        Project by <span className={styles.subtext}>Madhav Kauntia</span>
+        Project by{" "}
+        <a
+          className={styles.subtext}
+          href="https://madhavkauntia.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Madhav Kauntia
+        </a>
       </div>
     </div>
   );
