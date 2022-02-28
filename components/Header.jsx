@@ -1,7 +1,9 @@
-import React from "react";
+import { React, useState } from "react";
 import styles from "../styles/Header.module.css";
+import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Header = () => {
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className={styles.container}>
       <h1>
