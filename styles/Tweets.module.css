@@ -69,6 +69,9 @@
   .tweets {
     margin: 2rem 2rem;
   }
+  .tweetImage {
+    width: 20rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -79,5 +82,8 @@
   .container p {
     font-size: 12px;
     line-height: 15px;
+  }
+  .tweetImage {
+    width: 15rem;
   }
 }
