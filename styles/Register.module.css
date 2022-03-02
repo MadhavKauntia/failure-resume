@@ -14,11 +14,12 @@
 .login h1 {
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 36px;
+  font-size: 48px;
   line-height: 60px;
   margin-top: 3rem;
   color: var(--color-text);
   text-align: center;
+  animation: glow 0.5s infinite alternate;
 }
 
 .box {
@@ -124,6 +125,15 @@
   -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
   animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 -10px var(--color-subtext);
+  }
+  to {
+    text-shadow: 0 0 10px var(--color-subtext);
+  }
 }
 
 @-webkit-keyframes scale-in-center {
