@@ -36,3 +36,14 @@
   color: var(--color-subtext);
   cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+  .privacy a,
+  .project {
+    font-size: 12px;
+    line-height: 48px;
+  }
+  .container {
+    flex-direction: column;
+  }
+}

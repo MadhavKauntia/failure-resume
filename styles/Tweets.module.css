@@ -47,3 +47,43 @@
   filter: drop-shadow(4px 4px 4px #00adb5);
   border-radius: 20px;
 }
+
+@media screen and (max-width: 1300px) {
+  .tweets {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    margin: 3rem auto;
+  }
+  .container h1 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  .container p {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .tweets {
+    margin: 2rem 2rem;
+  }
+  .tweetImage {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+  .container p {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .tweetImage {
+    width: 15rem;
+  }
+}

@@ -34,7 +34,7 @@
   gap: 4rem;
   color: var(--color-text);
   font-family: var(--font-family);
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .container ul li:hover {
@@ -55,7 +55,7 @@
 .login p {
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 29px;
   display: flex;
   align-items: center;
@@ -82,4 +82,13 @@
   outline: none;
 
   cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .container ul {
+    display: none;
+  }
+  .login {
+    display: none;
+  }
 }

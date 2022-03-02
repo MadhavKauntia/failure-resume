@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { Bounce, Zoom } from "react-reveal";
 import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -19,9 +20,11 @@ export default function Home() {
       </Head>
 
       <Header />
-      <Intro />
-      <Tweets />
-      <CTA />
+      <Zoom>
+        <Intro />
+        <Tweets />
+        <CTA />
+      </Zoom>
       <Footer />
     </div>
   );
