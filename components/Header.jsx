@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import { style } from "@mui/system";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -25,6 +26,46 @@ const Header = () => {
         <Link href="/register" passHref>
           <button type="button">Register</button>
         </Link>
+      </div>
+      <div className={styles.navbarMenu}>
+        {toggleMenu ? (
+          <RiCloseLine
+            color="#00adb5"
+            size={27}
+            onClick={() => setToggleMenu(false)}
+          />
+        ) : (
+          <RiMenu3Line
+            color="#00adb5"
+            size={27}
+            onClick={() => setToggleMenu(true)}
+          />
+        )}
+        {toggleMenu && (
+          <div className={styles.navbarMenuContainer}>
+            <div
+              className={`${styles.navbarMenuContainerLinks} ${styles["scale-up-center"]}`}
+            >
+              <p>
+                <a>Use Case</a>
+              </p>
+              <p>
+                <a>Discover</a>
+              </p>
+              <p>
+                <a>Blog</a>
+              </p>
+              <div className={styles.navbarSignIn}>
+                <Link href="/login" passHref>
+                  <p>Login</p>
+                </Link>
+                <Link href="/register" passHref>
+                  <button type="button">Register</button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

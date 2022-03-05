@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-secondary);
-  height: 7rem;
+  height: 6rem;
 }
 
 .container h1 {
@@ -65,7 +65,8 @@
   cursor: pointer;
 }
 
-.login button {
+.login button,
+.navbarSignIn button {
   background: var(--color-subtext);
   border-radius: 5px;
   font-family: var(--font-family);
@@ -84,11 +85,81 @@
   cursor: pointer;
 }
 
+.navbarMenu {
+  display: none;
+  margin-right: 1rem;
+}
+
+.navbarMenuContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  text-align: end;
+  background: var(--color-secondary);
+  padding: 2rem;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  margin-top: 1rem;
+  min-width: 150px;
+  border-radius: 5px;
+  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.navbarMenuContainer p {
+  margin: 1rem 0;
+  font-family: var(--font-family);
+  color: var(--color-subtext);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.navbarSignIn {
+  display: none;
+}
+
+.scale-up-center {
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
 @media screen and (max-width: 900px) {
   .container ul {
+    width: 1px;
     display: none;
   }
   .login {
+    width: 1px;
     display: none;
+  }
+  .navbarMenu {
+    display: flex;
+  }
+  .navbarSignIn {
+    display: block;
   }
 }
