@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
-import { style } from "@mui/system";
 
 const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
