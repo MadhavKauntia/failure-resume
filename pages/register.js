@@ -20,7 +20,7 @@ const Register = () => {
         <title>Register - Failure Resume</title>
         <meta
           name="description"
-          content="Generate a failure resume and document your learnings from your failures to help you grow."
+          content="Register on Failure Resume to start creating your resume."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

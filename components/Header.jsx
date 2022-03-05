@@ -14,9 +14,15 @@ const Header = () => {
         </h1>
       </Link>
       <ul>
-        <li>Use Case</li>
-        <li>Discover</li>
-        <li>Blog</li>
+        <Link href="/construction" passHref>
+          <li>Use Case</li>
+        </Link>
+        <Link href="/construction" passHref>
+          <li>Discover</li>
+        </Link>
+        <Link href="/construction" passHref>
+          <li>Blog</li>
+        </Link>
       </ul>
       <div className={styles.login}>
         <Link href="/login" passHref>
@@ -46,13 +52,19 @@ const Header = () => {
               className={`${styles.navbarMenuContainerLinks} ${styles["scale-up-center"]}`}
             >
               <p>
-                <a>Use Case</a>
+                <Link href="/construction" passHref>
+                  <a>Use Case</a>
+                </Link>
               </p>
               <p>
-                <a>Discover</a>
+                <Link href="/construction" passHref>
+                  <a>Discover</a>
+                </Link>
               </p>
               <p>
-                <a>Blog</a>
+                <Link href="/construction" passHref>
+                  <a>Blog</a>
+                </Link>
               </p>
               <div className={styles.navbarSignIn}>
                 <Link href="/login" passHref>

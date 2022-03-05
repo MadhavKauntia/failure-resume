@@ -20,7 +20,7 @@ const Login = () => {
         <title>Login - Failure Resume</title>
         <meta
           name="description"
-          content="Generate a failure resume and document your learnings from your failures to help you grow."
+          content="Login to access and edit your Failure Resume."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
