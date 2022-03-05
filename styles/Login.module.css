@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin: 5rem 0;
 }
 
 .login h1 {
@@ -158,6 +158,9 @@
 }
 
 @media screen and (max-width: 550px) {
+  .login {
+    margin: 2rem 0;
+  }
   .login h1 {
     font-size: 30px;
     line-height: 40px;

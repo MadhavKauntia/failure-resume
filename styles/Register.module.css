@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin: 5rem 0;
 }
 
 .login h1 {
@@ -187,5 +187,8 @@
   .register {
     font-size: 12px;
     line-height: 22px;
+  }
+  .login {
+    margin: 2rem 0;
   }
 }
