@@ -160,6 +160,7 @@
 @media screen and (max-width: 550px) {
   .login {
     margin: 2rem 0;
+    gap: 1rem;
   }
   .login h1 {
     font-size: 30px;

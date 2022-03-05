@@ -15,7 +15,7 @@ const Construction = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className={`${styles.content} ${styles["puff-in-center"]}`}>
+      <div className={styles.content}>
         <h1>Under Construction</h1>
         <p>This page is under construction, please visit later.</p>
         <Image src={image} alt="Under Construction" width="750" height="680" />
