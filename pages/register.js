@@ -5,15 +5,31 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import Router, { useRouter } from "next/router";
 
 const Register = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const res = await fetch("/api/register", {
+      method: "POST",
+      headers: {
+        fullName: data.registerName,
+        username: data.registerUsername,
+        email: data.registerEmail,
+        password: data.registerPassword,
+      },
+    });
+    console.log(res.status);
+    if (res.ok) {
+      router.push("/login");
+    }
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -29,6 +45,15 @@ const Register = () => {
         <h1>Register on Failure Resume</h1>
         <div className={styles.box}>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.field}>
+              <label htmlFor="registerName">Full Name</label>
+              <input
+                id="registerName"
+                placeholder="Full Name"
+                type="text"
+                {...register("registerName", { required: true })}
+              />
+            </div>
             <div className={styles.field}>
               <label htmlFor="registerUsername">Username</label>
               <input

@@ -16,14 +16,14 @@
   font-weight: 600;
   font-size: 48px;
   line-height: 60px;
-  margin-top: 3rem;
+  margin-top: 2rem;
   color: var(--color-text);
   text-align: center;
   animation: glow 0.5s infinite alternate;
 }
 
 .box {
-  height: 35rem;
+  height: 42rem;
   width: 32rem;
   background: var(--color-secondary);
   display: flex;

@@ -1,19 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../styles/Login.module.css";
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import AuthContext from "../store/auth-context";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
+  const authCtx = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const res = await fetch("/api/login", {
+      headers: {
+        email: data.loginEmail,
+        password: data.loginPassword,
+      },
+    });
+    if (res.ok) {
+      const json = await res.json();
+      authCtx.login(
+        json.auth.stsTokenManager.accessToken,
+        json.auth.stsTokenManager.refreshToken,
+        json.fullName,
+        json.username
+      );
+      router.push(`/edit/${json.username}`);
+    } else {
+      alert("Login Failed - Invalid Email or Password");
+    }
+  };
   return (
     <div className={styles.container}>
       <Head>
