@@ -8,11 +8,13 @@ import Link from "next/link";
 import AuthContext from "../store/auth-context";
 import { useRouter } from "next/router";
 import { Alert } from "@mui/material";
+import LoadingBar from "react-top-loading-bar";
 
 const Login = () => {
   const router = useRouter();
   const authCtx = useContext(AuthContext);
   const [loginFail, setLoginFail] = useState(null);
+  const [progress, setProgress] = useState(0);
   const {
     register,
     handleSubmit,
@@ -20,12 +22,19 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    setProgress(40);
     const res = await fetch("/api/login", {
       headers: {
         email: data.loginEmail,
         password: data.loginPassword,
       },
     });
+    setProgress(70);
     if (res.ok) {
       const json = await res.json();
       authCtx.login(
@@ -42,6 +51,7 @@ const Login = () => {
     } else {
       setLoginFail("Login Failed - Invalid Email or Password");
     }
+    setProgress(100);
   };
   return (
     <div className={styles.container}>
@@ -53,6 +63,11 @@ const Login = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <LoadingBar
+        progress={progress}
+        color="#00adb5"
+        onLoaderFinished={() => setProgress(0)}
+      />
       <Header />
       <div className={`${styles.login} ${styles["scale-in-center"]}`}>
         {loginFail && (
