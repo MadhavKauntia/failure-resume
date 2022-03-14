@@ -1,4 +1,4 @@
-import { AuthContextProvider } from "../store/auth-context";
+import AuthContextProvider from "../store/AuthContextProvider";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {

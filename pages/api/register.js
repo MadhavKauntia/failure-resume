@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       await User.create({
         fullName: req.headers.fullname,
         email: req.headers.email,
-        username: req.headers.username,
+        username: req.headers.username.toLowerCase(),
       });
     } catch (err) {
       res.statusCode = 406;

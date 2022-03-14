@@ -4,10 +4,15 @@ import Footer from "../../components/Footer";
 import styles from "../../styles/Edit.module.css";
 import { useRouter } from "next/router";
 import AuthContext from "../../store/auth-context";
+import Error from "../error";
 
 const Edit = () => {
   const authCtx = useContext(AuthContext);
   const router = useRouter();
+
+  if (authCtx.username !== router.query.username) {
+    return <Error />;
+  }
   return (
     <>
       <Header />
