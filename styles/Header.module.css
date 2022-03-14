@@ -160,6 +160,13 @@
     display: flex;
   }
   .navbarSignIn {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .navbarSignIn button {
+    margin: 0.25rem;
+    padding: 0.75rem 1rem;
   }
 }

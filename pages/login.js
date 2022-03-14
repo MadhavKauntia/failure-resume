@@ -1,19 +1,48 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from "../styles/Login.module.css";
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import AuthContext from "../store/auth-context";
+import { useRouter } from "next/router";
+import { Alert } from "@mui/material";
 
 const Login = () => {
+  const router = useRouter();
+  const authCtx = useContext(AuthContext);
+  const [loginFail, setLoginFail] = useState(null);
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const res = await fetch("/api/login", {
+      headers: {
+        email: data.loginEmail,
+        password: data.loginPassword,
+      },
+    });
+    if (res.ok) {
+      const json = await res.json();
+      authCtx.login(
+        json.auth.stsTokenManager.accessToken,
+        json.auth.stsTokenManager.refreshToken,
+        json.fullName,
+        json.username
+      );
+      router.push(`/edit/${json.username}`);
+    } else if (res.status === 417) {
+      setLoginFail(
+        "Please verify your email ID by checking the mail sent to you."
+      );
+    } else {
+      setLoginFail("Login Failed - Invalid Email or Password");
+    }
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -26,6 +55,11 @@ const Login = () => {
       </Head>
       <Header />
       <div className={`${styles.login} ${styles["scale-in-center"]}`}>
+        {loginFail && (
+          <Alert severity="error" onClose={() => setLoginFail(null)}>
+            {loginFail}
+          </Alert>
+        )}
         <h1>Login to Failure Resume</h1>
         <div className={styles.box}>
           <form onSubmit={handleSubmit(onSubmit)}>

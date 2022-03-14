@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Intro from "../components/Intro";
 import Tweets from "../components/Tweets";
 import styles from "../styles/Home.module.css";
+import CookieConsent from "react-cookie-consent";
 
 export default function Home() {
   return (
@@ -26,6 +27,19 @@ export default function Home() {
         <CTA />
       </Zoom>
       <Footer />
+      <CookieConsent
+        location="bottom"
+        buttonText="I Agree"
+        style={{ background: "#393E46" }}
+        buttonStyle={{
+          color: "#eeeeee",
+          fontSize: "13px",
+          background: "#00ADB5",
+        }}
+        expires={150}
+      >
+        This website uses cookies to enhance the user experience.
+      </CookieConsent>
     </div>
   );
 }
