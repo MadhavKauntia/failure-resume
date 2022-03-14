@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { Alert } from "@mui/material";
+import LoadingBar from "react-top-loading-bar";
 
 const Register = () => {
   const {
@@ -15,7 +16,14 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const [alert, setAlert] = useState(null);
+  const [progress, setProgress] = useState(0);
   const onSubmit = async (data) => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    setProgress(40);
     const res = await fetch("/api/register", {
       method: "POST",
       headers: {
@@ -25,7 +33,7 @@ const Register = () => {
         password: data.registerPassword,
       },
     });
-    console.log(res.status);
+    setProgress(70);
     if (res.ok) {
       setAlert({
         level: "info",
@@ -43,6 +51,7 @@ const Register = () => {
         message: "This user already exists. Please login.",
       });
     }
+    setProgress(100);
   };
   return (
     <div className={styles.container}>
@@ -54,6 +63,11 @@ const Register = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <LoadingBar
+        progress={progress}
+        color="#00adb5"
+        onLoaderFinished={() => setProgress(0)}
+      />
       <Header />
       <div className={`${styles.login} ${styles["scale-in-center"]}`}>
         {alert && (
