@@ -1,10 +1,14 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import AuthContext from "../store/auth-context";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const authCtx = useContext(AuthContext);
   return (
     <div className={styles.container}>
       <Link href="/" passHref>
@@ -24,14 +28,32 @@ const Header = () => {
           <li>Blog</li>
         </Link>
       </ul>
-      <div className={styles.login}>
-        <Link href="/login" passHref>
-          <p>Login</p>
-        </Link>
-        <Link href="/register" passHref>
-          <button type="button">Register</button>
-        </Link>
-      </div>
+      {!authCtx.isLoggedIn && (
+        <div className={styles.login}>
+          <Link href="/login" passHref>
+            <p>Login</p>
+          </Link>
+          <Link href="/register" passHref>
+            <button type="button">Register</button>
+          </Link>
+        </div>
+      )}
+      {authCtx.isLoggedIn && (
+        <div className={styles.login}>
+          <Link href={`/edit/${authCtx.username}`} passHref>
+            <button type="button">Edit Resume</button>
+          </Link>
+          <button
+            type="button"
+            onClick={() => {
+              authCtx.logout();
+              router.replace("/");
+            }}
+          >
+            Sign Out
+          </button>
+        </div>
+      )}
       <div className={styles.navbarMenu}>
         {toggleMenu ? (
           <RiCloseLine
@@ -66,14 +88,32 @@ const Header = () => {
                   <a>Blog</a>
                 </Link>
               </p>
-              <div className={styles.navbarSignIn}>
-                <Link href="/login" passHref>
-                  <p>Login</p>
-                </Link>
-                <Link href="/register" passHref>
-                  <button type="button">Register</button>
-                </Link>
-              </div>
+              {!authCtx.isLoggedIn && (
+                <div className={styles.navbarSignIn}>
+                  <Link href="/login" passHref>
+                    <p>Login</p>
+                  </Link>
+                  <Link href="/register" passHref>
+                    <button type="button">Register</button>
+                  </Link>
+                </div>
+              )}
+              {authCtx.isLoggedIn && (
+                <div className={styles.navbarSignIn}>
+                  <Link href={`/edit/${authCtx.username}`} passHref>
+                    <button type="button">Edit Resume</button>
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      authCtx.logout();
+                      router.replace("/");
+                    }}
+                  >
+                    Sign Out
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}

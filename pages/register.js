@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/Register.module.css";
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import Router, { useRouter } from "next/router";
+import { Alert } from "@mui/material";
 
 const Register = () => {
-  const router = useRouter();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
+  const [alert, setAlert] = useState(null);
   const onSubmit = async (data) => {
     const res = await fetch("/api/register", {
       method: "POST",
@@ -27,7 +27,21 @@ const Register = () => {
     });
     console.log(res.status);
     if (res.ok) {
-      router.push("/login");
+      setAlert({
+        level: "info",
+        message:
+          "A verification mail has been sent to your email ID, please verify your email and then login.",
+      });
+    } else if (res.status === 406) {
+      setAlert({
+        level: "error",
+        message: "This username already exists, please choose another.",
+      });
+    } else {
+      setAlert({
+        level: "error",
+        message: "This user already exists. Please login.",
+      });
     }
   };
   return (
@@ -42,6 +56,11 @@ const Register = () => {
       </Head>
       <Header />
       <div className={`${styles.login} ${styles["scale-in-center"]}`}>
+        {alert && (
+          <Alert severity={alert.level} onClose={() => setAlert(null)}>
+            {alert.message}
+          </Alert>
+        )}
         <h1>Register on Failure Resume</h1>
         <div className={styles.box}>
           <form onSubmit={handleSubmit(onSubmit)}>

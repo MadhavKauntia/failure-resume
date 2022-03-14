@@ -21,8 +21,7 @@ export const AuthContextProvider = (props) => {
   const [initials, setInitials] = useState(null);
   const [username, setUsername] = useState(null);
   const [fullName, setFullName] = useState(null);
-
-  const userIsLoggedIn = !!token;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const loginHandler = (token, refreshToken, name, username) => {
     setToken(token);
@@ -38,6 +37,7 @@ export const AuthContextProvider = (props) => {
     setInitials(initial);
     setUsername(username);
     setFullName(name);
+    setIsLoggedIn(true);
   };
 
   const logoutHandler = () => {
@@ -46,6 +46,7 @@ export const AuthContextProvider = (props) => {
     setInitials(null);
     setUsername(null);
     setFullName(null);
+    setIsLoggedIn(false);
     signOut(auth)
       .then(() => {})
       .catch((error) => {});
@@ -55,7 +56,7 @@ export const AuthContextProvider = (props) => {
     token,
     refreshToken,
     initials,
-    isLoggedIn: userIsLoggedIn,
+    isLoggedIn: isLoggedIn,
     username,
     fullName,
     login: loginHandler,
