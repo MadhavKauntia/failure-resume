@@ -48,7 +48,7 @@ const Register = () => {
     } else {
       setAlert({
         level: "error",
-        message: "This user already exists. Please login.",
+        message: "Either this user already exists, or the email ID is invalid.",
       });
     }
     setProgress(100);
