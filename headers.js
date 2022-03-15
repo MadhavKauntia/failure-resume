@@ -35,4 +35,8 @@ module.exports = [
     key: "Permissions-Policy",
     value: "geolocation=*", // allow specified policies here
   },
+  {
+    key: "Content-Security-Policy",
+    value: "self", // allow specified policies here
+  },
 ];
