@@ -1,4 +1,4 @@
-import headers from "./headers";
+const headers = require("./headers");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -24,4 +24,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
