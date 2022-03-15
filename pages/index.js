@@ -29,7 +29,7 @@ export default function Home() {
       <Footer />
       <CookieConsent
         location="bottom"
-        buttonText="I Agree"
+        buttonText="OK"
         style={{ background: "#393E46" }}
         buttonStyle={{
           color: "#eeeeee",
