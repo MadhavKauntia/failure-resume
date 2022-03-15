@@ -1,3 +1,5 @@
+const headers = require("./headers");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -11,6 +13,14 @@ const nextConfig = {
     FIREBASE_APP_ID: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
     FIREBASE_MEASUREMENT_ID: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
     MONGO_URI: process.env.NEXT_PUBLIC_MONGO_URI,
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers,
+      },
+    ];
   },
 };
 
