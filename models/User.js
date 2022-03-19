@@ -1,5 +1,20 @@
 import mongoose from "mongoose";
 
+const Resume = mongoose.Schema({
+  date: {
+    type: Date,
+    required: true,
+  },
+  failure: {
+    type: String,
+    required: true,
+  },
+  lesson: {
+    type: String,
+    required: true,
+  },
+});
+
 const userModel = mongoose.Schema({
   username: {
     type: String,
@@ -13,6 +28,10 @@ const userModel = mongoose.Schema({
   email: {
     type: String,
     required: true,
+  },
+  resume_entries: {
+    type: [Resume],
+    default: [],
   },
 });
 
