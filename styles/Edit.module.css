@@ -17,7 +17,6 @@
 
 .container h1 {
   font-family: var(--font-family);
-  font-style: normal;
   font-weight: 500;
   font-size: 48px;
   line-height: 58px;
@@ -30,4 +29,12 @@
 
 .subtext {
   color: var(--color-subtext);
+}
+
+@media screen and (max-width: 800px) {
+  .container h1 {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 45px;
+  }
 }

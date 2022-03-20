@@ -67,17 +67,23 @@
 @media screen and (max-width: 800px) {
   .container {
     flex-direction: column;
+    min-height: 6rem;
   }
   .vl {
     border-left: 0;
     border-bottom: 1px solid var(--color-subtext);
     width: 100%;
     min-height: auto;
-    margin: 1rem 0;
   }
   .time,
   .failure,
   .lesson {
     width: 100%;
+  }
+
+  .value {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 21px;
   }
 }
