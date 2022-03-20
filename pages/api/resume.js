@@ -25,9 +25,9 @@ export default async function handler(req, res) {
         res.end();
       });
   } else if (
-    req.method === "POST" &&
-    !req.headers.username &&
-    !req.headers.authorization
+    req.method === "PUT" &&
+    req.headers.username &&
+    req.headers.authorization
   ) {
     try {
       const credentials = await verifyIdToken(req.headers.authorization);
@@ -36,8 +36,21 @@ export default async function handler(req, res) {
         res.end();
         return;
       }
+      await User.updateOne(
+        {
+          username: req.headers.username,
+        },
+        {
+          resume_entries: req.body,
+        }
+      );
+      res.statusCode = 200;
+      res.end();
     } catch (err) {
-      res.statusCode = 401;
+      res.statusCode = 500;
+      res.json({
+        error: err.message,
+      });
       res.end();
       return;
     }

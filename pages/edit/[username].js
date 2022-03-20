@@ -11,6 +11,7 @@ import Head from "next/head";
 const Edit = () => {
   const authCtx = useContext(AuthContext);
   const router = useRouter();
+  console.log(authCtx.token);
 
   if (authCtx.username !== router.query.username) {
     return <Error />;
