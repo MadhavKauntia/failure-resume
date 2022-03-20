@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background: var(--color-secondary);
+  min-height: 10rem;
+  box-shadow: 4px 4px 4px var(--color-subtext);
+  border-radius: 30px;
+  width: 90%;
+  margin: 0 1rem;
+}
+
+.time {
+  flex: 1;
+}
+
+.failure {
+  flex: 2;
+}
+
+.lesson {
+  flex: 3;
+}
+
+.vl {
+  border-left: 1px solid var(--color-subtext);
+  min-height: inherit;
+  margin: 0 3rem;
+}
+
+.time,
+.failure,
+.lesson {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: inherit;
+}
+
+.title {
+  color: var(--color-subtext);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: auto;
+}
+
+.value {
+  color: var(--color-text);
+  margin: auto 0;
+
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 24px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    min-height: 6rem;
+  }
+  .vl {
+    border-left: 0;
+    border-bottom: 1px solid var(--color-subtext);
+    width: 100%;
+    min-height: auto;
+  }
+  .time,
+  .failure,
+  .lesson {
+    width: 100%;
+  }
+
+  .value {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}

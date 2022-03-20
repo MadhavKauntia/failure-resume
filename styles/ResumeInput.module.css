@@ -1,0 +1,172 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background: var(--color-input);
+  min-height: 10rem;
+  box-shadow: 4px 4px 4px var(--color-subtext);
+  border-radius: 30px;
+  width: 90%;
+  margin: 0 1rem;
+}
+
+.time {
+  flex: 1;
+}
+
+.failure {
+  flex: 2;
+}
+
+.lesson {
+  flex: 3;
+}
+
+.vl {
+  border-left: 1px solid var(--color-subtext);
+  min-height: 14rem;
+  margin: 0 3rem;
+}
+
+.time,
+.failure,
+.lesson {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: inherit;
+}
+
+.title {
+  color: var(--color-subtext);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: auto;
+}
+
+.failure p,
+.time p,
+.lesson p {
+  margin-bottom: 1rem;
+}
+
+.failure textarea,
+.lesson textarea {
+  padding-top: 1rem;
+  min-height: inherit;
+  font-family: var(--font-family);
+  width: 100%;
+  color: var(--color-text);
+  background: var(--color-input);
+  outline: none;
+  border: none;
+  text-align: left;
+  justify-items: start;
+  color: var(--color-text);
+  margin: auto 0;
+  word-wrap: break-word;
+
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 24px;
+
+  resize: none;
+}
+
+.failure textarea::-webkit-scrollbar,
+.lesson textarea::-webkit-scrollbar {
+  width: 0.5em;
+  cursor: pointer;
+}
+
+.failure textarea::-webkit-scrollbar-track,
+.lesson textarea::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.failure textarea::-webkit-scrollbar-thumb,
+.lesson textarea::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  cursor: pointer;
+}
+
+.submit {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.submit button {
+  padding: 1rem 3rem;
+  cursor: pointer;
+  background: var(--color-subtext);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--color-text);
+}
+
+.time input {
+  margin: auto;
+  background-color: var(--color-input);
+  outline: none;
+  border: none;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 2px var(--color-subtext);
+  -webkit-box-shadow: 0 0 5px var(--color-subtext);
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.time input[type="month"]::-icon {
+  color: var(--color-subtext);
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    min-height: 6rem;
+  }
+  .vl {
+    border-left: 0;
+    border-bottom: 1px solid var(--color-subtext);
+    width: 100%;
+    min-height: inherit;
+  }
+  .time,
+  .failure,
+  .lesson {
+    width: 100%;
+  }
+
+  .failure textarea,
+  .time textarea,
+  .lesson textarea {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
