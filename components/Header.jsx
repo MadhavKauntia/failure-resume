@@ -11,6 +11,7 @@ const Header = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const authCtx = useContext(AuthContext);
   const [progress, setProgress] = useState(0);
+  const showNavigation = false;
 
   useEffect(() => {
     setProgress(100);
@@ -31,17 +32,19 @@ const Header = () => {
             <span className={styles.subtext}>R</span>
           </h1>
         </Link>
-        <ul>
-          <Link href="/construction" passHref>
-            <li>Use Case</li>
-          </Link>
-          <Link href="/construction" passHref>
-            <li>Discover</li>
-          </Link>
-          <Link href="/construction" passHref>
-            <li>Blog</li>
-          </Link>
-        </ul>
+        {showNavigation && (
+          <ul>
+            <Link href="/construction" passHref>
+              <li>Use Case</li>
+            </Link>
+            <Link href="/construction" passHref>
+              <li>Discover</li>
+            </Link>
+            <Link href="/construction" passHref>
+              <li>Blog</li>
+            </Link>
+          </ul>
+        )}
         {!authCtx.isLoggedIn && (
           <div className={styles.login}>
             <Link href="/login" passHref>
