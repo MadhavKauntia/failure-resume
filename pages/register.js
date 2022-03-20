@@ -66,6 +66,8 @@ const Register = () => {
       <LoadingBar
         progress={progress}
         color="#00adb5"
+        shadow={true}
+        height={4}
         onLoaderFinished={() => setProgress(0)}
       />
       <Header />

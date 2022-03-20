@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
-import styles from "../styles/Edit.module.css";
+import styles from "../styles/Resume.module.css";
 import { useRouter } from "next/router";
 import ResumeEntry from "../components/ResumeEntry";
 import Head from "next/head";
