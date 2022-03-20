@@ -25,12 +25,20 @@ const ResumeInput = ({ addEntryHandler }) => {
         <div className={styles.vl}></div>
         <div className={styles.failure}>
           <p className={styles.title}>Failure / Regret</p>
-          <textarea type="text" ref={failureRef} />
+          <textarea
+            type="text"
+            placeholder="Write down a failure..."
+            ref={failureRef}
+          />
         </div>
         <div className={styles.vl}></div>
         <div className={styles.lesson}>
           <p className={styles.title}>Lesson</p>
-          <textarea type="text" ref={lessonRef} />
+          <textarea
+            type="text"
+            placeholder="Write down a lesson you learnt from this failure..."
+            ref={lessonRef}
+          />
         </div>
       </div>
       <div className={styles.submit}>
