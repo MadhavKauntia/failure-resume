@@ -45,31 +45,21 @@ const Edit = () => {
   }, [authCtx.username]);
 
   const addEntryHandler = (date, failure, lesson) => {
+    const newEntry = {
+      id: uuidv4(),
+      date: new Date(date.current.value),
+      failure: failure.current.value,
+      lesson: lesson.current.value,
+    };
     fetch("/api/resume", {
       method: "PUT",
       headers: {
         username: authCtx.username,
         authorization: authCtx.token,
       },
-      body: JSON.stringify([
-        ...resumeEntries,
-        {
-          id: uuidv4(),
-          date: new Date(date.current.value),
-          failure: failure.current.value,
-          lesson: lesson.current.value,
-        },
-      ]),
+      body: JSON.stringify([...resumeEntries, newEntry]),
     }).then((res) => {
-      setResumeEntries([
-        ...resumeEntries,
-        {
-          id: uuidv4(),
-          date: new Date(date.current.value),
-          failure: failure.current.value,
-          lesson: lesson.current.value,
-        },
-      ]);
+      setResumeEntries([...resumeEntries, newEntry]);
       date.current.value = null;
       failure.current.value = "";
       lesson.current.value = "";
