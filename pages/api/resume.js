@@ -41,7 +41,7 @@ export default async function handler(req, res) {
           username: req.headers.username,
         },
         {
-          resume_entries: req.body,
+          resume_entries: JSON.parse(req.body),
         }
       );
       res.statusCode = 200;
