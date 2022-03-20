@@ -6,6 +6,21 @@ import { useRouter } from "next/router";
 import ResumeEntry from "../components/ResumeEntry";
 import Head from "next/head";
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 const Resume = () => {
   const router = useRouter();
   const [name, setName] = useState("");
@@ -46,10 +61,13 @@ const Resume = () => {
             </h1>
             <div className={styles.entries}>
               {resumeEntries.map((resumeEntry) => {
+                const date = new Date(resumeEntry.date);
                 return (
                   <ResumeEntry
                     key={resumeEntry.id}
-                    time={resumeEntry.date}
+                    time={months[date.getMonth()]
+                      .concat(", ")
+                      .concat(date.getFullYear())}
                     failure={resumeEntry.failure}
                     lesson={resumeEntry.lesson}
                   />
@@ -59,7 +77,6 @@ const Resume = () => {
           </>
         )}
       </div>
-      <Footer />
     </>
   );
 };
