@@ -15,7 +15,7 @@ export default function Home() {
         <title>Home - Failure Resume</title>
         <meta
           name="description"
-          content="Generate a failure resume and document your learnings from your failures to help you grow."
+          content="Create a failure resume and document your learnings from your failures to help you grow."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -29,7 +29,7 @@ export default function Home() {
       <Footer />
       <CookieConsent
         location="bottom"
-        buttonText="I Agree"
+        buttonText="OK"
         style={{ background: "#393E46" }}
         buttonStyle={{
           color: "#eeeeee",

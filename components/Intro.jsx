@@ -8,8 +8,8 @@ const Intro = () => {
     <div className={styles.container}>
       <h1>Failure Resume</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        fringilla.
+        Create a failure resume and document your learnings from your failures
+        to help you grow.
       </p>
       <div className={styles.image}>
         <Image src={sample} alt="Failure Resume" className={styles.image} />
